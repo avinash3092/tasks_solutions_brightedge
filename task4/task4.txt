@@ -1,0 +1,19 @@
+task4
+
+
+FROM Centos6
+RUN yum install -y mysql
+RUN mkdir -p /opt/Docker/masterdb_server1/data /opt/Docker/masterdb_server1/data && mkdir -p /opt/Docker/masterdb_server2/cnf /opt/Docker/maseterdb_server2/cnf
+RUN cat > /opt/Docker/masterdb_server1/cnf/config-file.cnf <<'EOF' \
+# Config Settings: \
+[mysqld] \
+server-id=1 \
+binlog_format=ROW \
+log-bin \
+EOF  
+
+cat > /opt/Docker/masterdb_server2/cnf/config-file.cnf <<'EOF' \
+# Config Settings: \
+[mysqld] \
+server-id=2 \
+EOF

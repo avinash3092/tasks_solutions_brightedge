@@ -1,0 +1,5 @@
+FROM Centos6
+Run rpmbuild -tb httpd-2.4.x.tar.bz2
+RUN tar -xzvf archive.tar.bz2
+RUN rpm -U httpd-2.4.x-1.i686.rpm
+CMD service httpd restart
